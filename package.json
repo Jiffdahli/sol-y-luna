@@ -1,0 +1,23 @@
+{
+  "name": "sol-y-luna",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {"style":"sass --watch index.scss:sol-y-luna.css",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiffdahli/sol-y-luna.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Jiffdahli/sol-y-luna/issues"
+  },
+  "homepage": "https://github.com/Jiffdahli/sol-y-luna#readme",
+  "description": "",
+  "devDependencies": {
+    "sass": "^1.89.2"
+  }
+}
