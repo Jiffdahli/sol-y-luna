@@ -1,59 +1,132 @@
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-.root{
+.root {
     font-size: 62.5%;
 }
 
-body{
+body {
     min-height: 100vh;
 }
 
-header{
+header {
     display: flex;
     align-items: center;
-    justify-content:space-around;
+    justify-content: space-around;
 }
 
-img{
+img {
     width: 80px;
 }
 
-ul{
-    display: flex;
-    gap: 5rem;
-    list-style: none;
+/* NAVIGATION DROPDOWN */
+nav {
+  position: relative;
 }
 
-a{
+.main-menu {
+  display: flex;
+  gap: 5rem;
+  list-style: none;
+  position: relative;
+  z-index: 100;
+}
+.dropdown{
+    position: relative;
+}
+
+/* Untermenüs */
+.submenu {
+  display: none;
+  list-style: none;
+  position: absolute;
+  top: 100%;              /* direkt unter dem Menüpunkt anzeigen */
+  left: 0;                /* linksbündig am Menüpunkt ausrichten */
+  transform: none;        /* keine horizontale Verschiebung */
+  flex-direction: column;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 0.5rem 0;      /* vertikales Padding */
+  min-width: 0;           /* <-- override alte min-width */
+  width: fit-content;     /* <-- NEU: passt sich dem Inhalt an */
+  white-space: nowrap;
+  z-index: 999;
+}
+
+
+/* Untermenü-Links */
+.submenu li a {
+  padding: 0.5rem 0.75rem; /* gleichmäßig links/rechts 12px Abstand */
+  display: block;
+  text-decoration: none;
+  color: rgb(24, 24, 197);
+  font-size: 0.75rem;
+  width: 100%;             /* sicherstellen, dass Link den Container ausfüllt */
+}
+
+/* Hover-Effekt für alle <a> */
+a:hover {
+  text-decoration: underline;
+}
+
+/* Zeige Dropdown bei Hover */
+.dropdown:hover .submenu {
+  display: flex;
+}
+
+/* Entferne bullets (nur sicherheitshalber) */
+.submenu li {
+  list-style: none;
+}
+
+.submenu li a:hover{
+    text-decoration: underline;
+    background-color: #fff;
+}
+
+/*      ul {
+            display: flex;
+        }
+    ist zu mächtig, lieder erst in den container designen
+*/
+
+a {
     text-decoration: none;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     font-weight: lighter;
+    font-size: 0.75rem;
+    color: rgb(24, 24, 197);
+    transition: all 0.2 ease;
 }
 
-main{
+a:hover{text-decoration: underline;
+}
+
+                /* Bis hierhin gehört alles zu "header". Alles was danach kommt ist der "main". */
+
+main {
     background: url("./assets/medium_hell.svg");
     background-repeat: no-repeat;
-    background-size:20vw;
+    background-size: 20vw;
     aspect-ratio: 1;
     background-position: center top;
 }
 
 
-h1{
+h1 {
     font-size: 4.3rem;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
-    padding-top:19rem;
+    padding-top: 15.5rem;
 }
 
-h2{
-    font-family:Georgia, 'Times New Roman', Times, serif ;
+h2 {
+    font-family: Georgia, 'Times New Roman', Times, serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -63,39 +136,50 @@ h2{
 
 
 
-main{
+main {
     background: url("./assets/medium_hell.svg");
     background-repeat: no-repeat;
-    background-size:20vw;
-    aspect-ratio: 1;
+    background-size: 20vw;
     background-position: center top;
-    
-    
+
+
 }
 
-.card{
+.card {
     display: flex;
     flex-direction: column;
     align-items: center;
     margin-top: 10rem;
     gap: 3em;
-    
+    padding-bottom: 3em;
+
 }
 
-.img-row{
+.img-row {
     display: flex;
     justify-content: space-around;
     gap: 5rem;
-    
-}
- 
-.img-item img{
-    width: 20vw;
-    aspect-ratio: 1/1.75;
-    object-fit: cover;
+
 }
 
-.img-item{
+.img-item img {
+/*  width: 100%;
+    max-width: 250px;
+    max-height: 375px;
+    aspect-ratio: 1/1.5;
+    object-fit: cover;
+    border-radius: 4px;
+*/
+  width: 100%;
+    max-width: clamp(180px, 25vw, 250px);
+    max-height: 400px;
+    object-fit: cover;
+    aspect-ratio: 2 / 3;
+    border-radius: 4px;
+
+}
+
+.img-item {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -105,4 +189,3 @@ main{
     margin: 1.5rem;
 
 }
-
